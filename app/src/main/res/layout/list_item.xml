@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/drawable"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_padding"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_padding"
+        android:textStyle="italic"
+        tools:text="Author" />
+
+
+    <TextView
+        android:id="@+id/publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_padding"
+        android:textStyle="normal"
+        tools:text="publisher" />
+
+    <TextView
+        android:id="@+id/publishedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_padding"
+        android:textStyle="normal"
+        tools:text="2017" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_padding"
+        android:textStyle="italic"
+        tools:text="This amoral, cunning, ruthless, and instructive book synthesizes the philosophies of Machiavelli" />
+
+</LinearLayout>
