@@ -80,7 +80,7 @@ public class BookLoader extends AsyncTaskLoader<List<Book>> {
             // Extract the JSONArray associated with the key called "items",
 
             JSONArray itemsArray = baseJsonResponse.optJSONArray("items");
-
+            if (itemsArray != null) {
             for (int i = 0; i < itemsArray.length(); i++) {
 
                 JSONObject currentBook = itemsArray.getJSONObject(i);
@@ -91,12 +91,15 @@ public class BookLoader extends AsyncTaskLoader<List<Book>> {
                 String description = volumeObject.optString("description");
                 JSONArray authorArray = volumeObject.optJSONArray("authors");
                 String author = "";
+                if (authorArray != null) {
                 for (int j = 0; j < authorArray.length(); j++) {
                     author = authorArray.optString(0);
+                }
                 }
                 list.add(new Book("Title: " + title, "Author: " + author, "Publisher: " + publisher, "Published Date: " + publishedDate, "Description: " + description));
 
                 //
+            }
             }
 
 
