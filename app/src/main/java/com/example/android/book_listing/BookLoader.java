@@ -76,30 +76,26 @@ public class BookLoader extends AsyncTaskLoader<List<Book>> {
             Log.e(LOG_TAG, "Fetching properties .....  ");
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(bookJSON);
-
             // Extract the JSONArray associated with the key called "items",
-
             JSONArray itemsArray = baseJsonResponse.optJSONArray("items");
             if (itemsArray != null) {
-            for (int i = 0; i < itemsArray.length(); i++) {
+                for (int i = 0; i < itemsArray.length(); i++) {
 
-                JSONObject currentBook = itemsArray.getJSONObject(i);
-                JSONObject volumeObject = currentBook.optJSONObject("volumeInfo");
-                String title = volumeObject.optString("title");
-                String publisher = volumeObject.optString("publisher");
-                String publishedDate = volumeObject.optString("publishedDate");
-                String description = volumeObject.optString("description");
-                JSONArray authorArray = volumeObject.optJSONArray("authors");
-                String author = "";
-                if (authorArray != null) {
-                for (int j = 0; j < authorArray.length(); j++) {
-                    author = authorArray.optString(0);
+                    JSONObject currentBook = itemsArray.getJSONObject(i);
+                    JSONObject volumeObject = currentBook.optJSONObject("volumeInfo");
+                    String title = volumeObject.optString("title");
+                    String publisher = volumeObject.optString("publisher");
+                    String publishedDate = volumeObject.optString("publishedDate");
+                    String description = volumeObject.optString("description");
+                    JSONArray authorArray = volumeObject.optJSONArray("authors");
+                    String author = "";
+                    if (authorArray != null) {
+                        for (int j = 0; j < authorArray.length(); j++) {
+                            author = authorArray.optString(0);
+                        }
+                    }
+                    list.add(new Book("Title: " + title, "Author: " + author, "Publisher: " + publisher, "Published Date: " + publishedDate, "Description: " + description));
                 }
-                }
-                list.add(new Book("Title: " + title, "Author: " + author, "Publisher: " + publisher, "Published Date: " + publishedDate, "Description: " + description));
-
-                //
-            }
             }
 
 
